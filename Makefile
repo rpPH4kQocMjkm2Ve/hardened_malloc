@@ -1,9 +1,9 @@
-TAG      := 2026020600
-NPROC    := $(shell nproc)
-DESTDIR  ?=
-SRCDIR   := hardened_malloc
-PREFIX   := /usr/local
+TAG        := 2026020600
+NPROC      := $(shell nproc)
+DESTDIR    ?=
+PREFIX     := /usr/local
 SYSCONFDIR := /etc
+SRCDIR     := hardened_malloc
 
 .PHONY: build install uninstall clean
 
@@ -23,13 +23,16 @@ install:
 		$(DESTDIR)$(PREFIX)/lib/libfake_rlimit.so
 	install -Dm644 ld.so.preload \
 		$(DESTDIR)$(SYSCONFDIR)/ld.so.preload
+	install -Dm644 sysctl.d/20-hardened-malloc.conf \
+		$(DESTDIR)$(SYSCONFDIR)/sysctl.d/20-hardened-malloc.conf
 
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/lib/libhardened_malloc.so
 	rm -f $(DESTDIR)$(PREFIX)/lib/libhardened_malloc-light.so
 	rm -f $(DESTDIR)$(PREFIX)/lib/libfake_rlimit.so
 	rm -f $(DESTDIR)$(SYSCONFDIR)/ld.so.preload
-	@echo "Note: run 'ldconfig' if needed."
+	rm -f $(DESTDIR)$(SYSCONFDIR)/sysctl.d/20-hardened-malloc.conf
+	@echo "Note: run 'sysctl --system' to reload defaults."
 
 clean:
 	rm -rf $(SRCDIR) libfake_rlimit.so
