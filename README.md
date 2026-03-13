@@ -79,3 +79,7 @@ make clean && make build && sudo make install
 
 - `base-devel` (`gcc`, `make`)
 - `git`
+
+## License
+
+AGPL-3.0-or-later
