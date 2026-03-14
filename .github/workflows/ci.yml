@@ -1,0 +1,10 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  build-shim:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - run: gcc -shared -fPIC -O2 -Wall -Wextra -Werror -o libfake_rlimit.so fake_rlimit.c -ldl
+      - run: bash tests/test.sh
