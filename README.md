@@ -1,5 +1,8 @@
 # hardened\_malloc
 
+[![CI](https://github.com/rpPH4kQocMjkm2Ve/hardened_malloc/actions/workflows/ci.yml/badge.svg)](https://github.com/rpPH4kQocMjkm2Ve/hardened_malloc/actions/workflows/ci.yml)
+![License](https://img.shields.io/github/license/rpPH4kQocMjkm2Ve/hardened_malloc)
+
 GrapheneOS [hardened\_malloc](https://github.com/GrapheneOS/hardened_malloc) — packaged for system-wide preloading on Linux.
 
 Builds both variants from source, plus a `libfake_rlimit.so` shim for GTK4/glycin compatibility.
