@@ -68,9 +68,8 @@ sudo make uninstall
 ## Updating
 
 ```bash
-# Check latest tag
-git ls-remote --tags https://github.com/GrapheneOS/hardened_malloc.git \
-    | grep -oP 'refs/tags/\K[0-9]{10}$' | sort -n | tail -5
+# Check latest tags
+make check-upstream
 
 # Update TAG in Makefile, commit, then:
 gitpkg update hardened_malloc
