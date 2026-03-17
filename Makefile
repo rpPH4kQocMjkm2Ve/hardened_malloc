@@ -1,11 +1,12 @@
 TAG        := 2026030700
+UPSTREAM   := https://github.com/GrapheneOS/hardened_malloc.git
 NPROC      := $(shell nproc)
 DESTDIR    ?=
 PREFIX     := /usr/local
 SYSCONFDIR := /etc
 SRCDIR     := hardened_malloc
 
-.PHONY: build install uninstall clean
+.PHONY: build check-upstream install uninstall clean
 
 build:
 	git clone --depth 1 --branch $(TAG) \
@@ -13,6 +14,12 @@ build:
 	$(MAKE) -C $(SRCDIR) -j$(NPROC)
 	$(MAKE) -C $(SRCDIR) -j$(NPROC) VARIANT=light
 	gcc -shared -fPIC -O2 -o libfake_rlimit.so fake_rlimit.c -ldl
+
+check-upstream:
+	@git ls-remote --tags $(UPSTREAM) \
+		| sed -n 's|.*refs/tags/\([0-9]\{10\}\)$$|\1|p' \
+		| sort -n \
+		| tail -5
 
 install:
 	install -Dm644 $(SRCDIR)/out/libhardened_malloc.so \
