@@ -11,9 +11,9 @@ Builds both variants from source, plus a `libfake_rlimit.so` shim for GTK4/glyci
 
 | File | Purpose |
 |------|---------|
-| `/usr/local/lib/libhardened_malloc.so` | Default variant — full hardening, for per-app use via bwrap `LD_PRELOAD` |
-| `/usr/local/lib/libhardened_malloc-light.so` | Light variant — balanced, loaded system-wide via `/etc/ld.so.preload` |
-| `/usr/local/lib/libfake_rlimit.so` | Intercepts `prlimit64`/`setrlimit` `RLIMIT_AS` calls to prevent crashes |
+| `/usr/lib/libhardened_malloc.so` | Default variant — full hardening, for per-app use via bwrap `LD_PRELOAD` |
+| `/usr/lib/libhardened_malloc-light.so` | Light variant — balanced, loaded system-wide via `/etc/ld.so.preload` |
+| `/usr/lib/libfake_rlimit.so` | Intercepts `prlimit64`/`setrlimit` `RLIMIT_AS` calls to prevent crashes |
 | `/etc/ld.so.preload` | Preloads `libfake_rlimit.so` + `libhardened_malloc-light.so` globally |
 | `/etc/sysctl.d/20-hardened-malloc.conf` | `vm.max_map_count = 1048576` for guard slabs |
 
@@ -30,8 +30,8 @@ Applications with custom allocators (Chromium/PartitionAlloc, Firefox/mozjemallo
 To use the default (stricter) variant system-wide instead of light, edit `/etc/ld.so.preload`:
 
 ```
-/usr/local/lib/libfake_rlimit.so
-/usr/local/lib/libhardened_malloc.so
+/usr/lib/libfake_rlimit.so
+/usr/lib/libhardened_malloc.so
 ```
 
 ## Install
