@@ -2,7 +2,7 @@ TAG        := 2026032000
 UPSTREAM   := https://github.com/GrapheneOS/hardened_malloc.git
 NPROC      := $(shell nproc)
 DESTDIR    ?=
-PREFIX     := /usr/local
+PREFIX     := /usr
 SYSCONFDIR := /etc
 SRCDIR     := hardened_malloc
 

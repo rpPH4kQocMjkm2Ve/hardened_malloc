@@ -1,2 +1,2 @@
-/usr/local/lib/libfake_rlimit.so
-/usr/local/lib/libhardened_malloc-light.so
+/usr/lib/libfake_rlimit.so
+/usr/lib/libhardened_malloc-light.so
