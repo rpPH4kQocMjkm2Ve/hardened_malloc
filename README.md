@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/rpPH4kQocMjkm2Ve/hardened_malloc/actions/workflows/ci.yml/badge.svg)](https://github.com/rpPH4kQocMjkm2Ve/hardened_malloc/actions/workflows/ci.yml)
 ![License](https://img.shields.io/github/license/rpPH4kQocMjkm2Ve/hardened_malloc)
+[![Spec](https://img.shields.io/endpoint?url=https://gitlab.com/fkzys/specs/-/raw/main/version.json&maxAge=300)](https://gitlab.com/fkzys/specs)
 
 GrapheneOS [hardened\_malloc](https://github.com/GrapheneOS/hardened_malloc) — packaged for system-wide preloading on Linux.
 
