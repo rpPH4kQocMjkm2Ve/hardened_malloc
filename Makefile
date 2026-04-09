@@ -32,6 +32,7 @@ install:
 		$(DESTDIR)$(SYSCONFDIR)/ld.so.preload
 	install -Dm644 sysctl.d/20-hardened-malloc.conf \
 		$(DESTDIR)$(SYSCONFDIR)/sysctl.d/20-hardened-malloc.conf
+	install -Dm644 LICENSE $(DESTDIR)$(PREFIX)/share/licenses/hardened_malloc/LICENSE
 
 uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/lib/libhardened_malloc.so
@@ -39,6 +40,7 @@ uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/lib/libfake_rlimit.so
 	rm -f $(DESTDIR)$(SYSCONFDIR)/ld.so.preload
 	rm -f $(DESTDIR)$(SYSCONFDIR)/sysctl.d/20-hardened-malloc.conf
+	rm -rf $(DESTDIR)$(PREFIX)/share/licenses/hardened_malloc/
 	@echo "Note: run 'sysctl --system' to reload defaults."
 
 clean:
