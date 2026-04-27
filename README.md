@@ -1,8 +1,8 @@
 # hardened\_malloc
 
-[![CI](https://github.com/rpPH4kQocMjkm2Ve/hardened_malloc/actions/workflows/ci.yml/badge.svg)](https://github.com/rpPH4kQocMjkm2Ve/hardened_malloc/actions/workflows/ci.yml)
-![License](https://img.shields.io/github/license/rpPH4kQocMjkm2Ve/hardened_malloc)
-[![Spec](https://img.shields.io/endpoint?url=https://gitlab.com/fkzys/specs/-/raw/main/version.json&maxAge=300)](https://gitlab.com/fkzys/specs)
+[![CI](https://github.com/fkzys/hardened_malloc/actions/workflows/ci.yml/badge.svg)](https://github.com/fkzys/hardened_malloc/actions/workflows/ci.yml)
+![License](https://img.shields.io/github/license/fkzys/hardened_malloc)
+[![Spec](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/fkzys/specs/refs/heads/main/version.json&maxAge=300)](https://github.com/fkzys/specs)
 
 GrapheneOS [hardened\_malloc](https://github.com/GrapheneOS/hardened_malloc) — packaged for system-wide preloading on Linux.
 
@@ -26,7 +26,7 @@ GTK4 uses [glycin](https://gitlab.gnome.org/GNOME/glycin) for image loading, whi
 
 The light variant provides zero-on-free, slab canaries, and guard slabs. The default variant adds slot randomization, write-after-free checks, and slab quarantines.
 
-Applications with custom allocators (Chromium/PartitionAlloc, Firefox/mozjemalloc) are incompatible and must have hardened\_malloc disabled in their bwrap wrappers via `--ro-bind /dev/null /etc/ld.so.preload`. See [dotfiles](https://gitlab.com/fkzys/dotfiles) for per-app configuration.
+Applications with custom allocators (Chromium/PartitionAlloc, Firefox/mozjemalloc) are incompatible and must have hardened\_malloc disabled in their bwrap wrappers via `--ro-bind /dev/null /etc/ld.so.preload`. See [dotfiles](https://github.com/fkzys/dotfiles) for per-app configuration.
 
 To use the default (stricter) variant system-wide instead of light, edit `/etc/ld.so.preload`:
 
@@ -43,7 +43,7 @@ To use the default (stricter) variant system-wide instead of light, edit `/etc/l
 gitpkg install hardened_malloc
 ```
 
-See [gitpkg](https://gitlab.com/fkzys/gitpkg) for details.
+See [gitpkg](https://github.com/fkzys/gitpkg) for details.
 
 ### Manually
 
